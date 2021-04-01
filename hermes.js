@@ -181,8 +181,8 @@ var geojsonfeatureCollection = {
     }]
 };
 
-function setUpLavadot(svgElement, blobClass) {
-  setAttributes(svgElement, {"version":"1.1", "class": "svg-bubbles", "xmlns":"http://www.w3.org/2000/svg", "xmlns:xlink":"http://www.w3.org/1999/xlink", "x":"0px", "y":"0px", "width":"150px", "height":"150px", "viewBox":"0 0 150 150"})
+function setUpLavadot(svgElement, blobClass, size) {
+  setAttributes(svgElement, {"version":"1.1", "class": "svg-bubbles", "xmlns":"http://www.w3.org/2000/svg", "xmlns:xlink":"http://www.w3.org/1999/xlink", "x":"0px", "y":"0px", "width":size + "px", "height":size + "px", "viewBox":"0 0 " + size + " " + size})
   let defsEl = document.createElementNS("http://www.w3.org/2000/svg", "defs")
   let filterEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "filter"), {"id": "goo"})
   let feGaussianBlurEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "feGaussianBlur"), {"in":"SourceGraphic", "result":"blur", "stdDeviation":"5"})
@@ -234,24 +234,25 @@ map.on('load', function () {
     }
   });
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-  setUpLavadot(lavaDivSVG, "blob-2");
+  setUpLavadot(lavaDivSVG, "blob-2", "98");
   document.getElementById('lavaDiv').appendChild(lavaDivSVG);
   geojsonfeatureCollection.features.forEach(function (marker) {
     var svgEl = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-    setUpLavadot(svgEl, "blob-1")
+    setUpLavadot(svgEl, "blob-1", "150")
     new mapboxgl.Marker({element: svgEl})
       .setLngLat(marker.geometry.coordinates)
       .addTo(map);
   });
-  startLavadotAnimation()
+  startLavadotAnimation("blob-1", 150)
+  startLavadotAnimation("blob-2", 98)
   TweenMax.set(".gLava",{autoAlpha:0});
   lavadotsInvisible = true;
 });
 
-function startLavadotAnimation() {
-      _boubles = document.querySelectorAll('.blob-1'),
-      _maxX = 150, 
-      _maxY = 150; 
+function startLavadotAnimation(className, size) {
+      _boubles = document.querySelectorAll('.' + className),
+      _maxX = size, 
+      _maxY = size; 
   
 	function _NextBounce (bouble) {
 		var r = bouble.getAttribute('r'),

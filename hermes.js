@@ -285,6 +285,7 @@ function startLavadotAnimation(className, size) {
 		}
 		return Math.floor(Math.random() * (max - min) + Number(min));
 	}
+	console.log(_boubles)
     console.log(_boubles.length)
 	for (var i = 0; i < _boubles.length; i++) {
 		_NextBounce(_boubles[i]);

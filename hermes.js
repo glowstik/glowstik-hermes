@@ -192,8 +192,8 @@ function setUpLavadot(svgElement, blobClass, size) {
   defsEl.appendChild(filterEl)
   let gEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "g"), {"class":"gLava", "style":"opacity: 0.7","filter":"url(#goo)"})
   for(var i = 0; i < 10; i++){
-    let cxRand = ((Math.floor(Math.random() * (parseInt(size) - 64))) + 32);
-    let cyRand = ((Math.floor(Math.random() * (parseInt(size) - 64))) + 32);
+    let cxRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
+    let cyRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
     let rRand = (Math.floor(Math.random() * 24) + 8)
     let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":blobClass, "fill":"#ed2290", "cx":cxRand, "cy":cyRand, "r":rRand})
     gEl.appendChild(childOfG);

@@ -31,7 +31,7 @@ document.addEventListener('mouseup', function(){
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/adammarez/ckgv43wr22dra19memucup1y8',
-  center: [-122.406105, 37.802457],
+  center: [-122.4061057, 37.802457],
   zoom: 18.1,
   pitch: 68,
   bearing: 23.13,

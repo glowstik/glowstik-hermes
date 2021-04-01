@@ -233,7 +233,9 @@ map.on('load', function () {
       'fill-extrusion-opacity': .6
     }
   });
-  
+  var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+  setUpLavadot(lavaDivSVG);
+  document.getElementById('lavaDiv').appendChild(lavaDivSVG);
   geojsonfeatureCollection.features.forEach(function (marker) {
     var svgEl = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
     setUpLavadot(svgEl)

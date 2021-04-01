@@ -181,7 +181,7 @@ var geojsonfeatureCollection = {
     }]
 };
 
-function setUpLavadot(svgElement) {
+function setUpLavadot(svgElement, blobClass) {
   setAttributes(svgElement, {"version":"1.1", "class": "svg-bubbles", "xmlns":"http://www.w3.org/2000/svg", "xmlns:xlink":"http://www.w3.org/1999/xlink", "x":"0px", "y":"0px", "width":"150px", "height":"150px", "viewBox":"0 0 150 150"})
   let defsEl = document.createElementNS("http://www.w3.org/2000/svg", "defs")
   let filterEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "filter"), {"id": "goo"})
@@ -195,7 +195,7 @@ function setUpLavadot(svgElement) {
     let cxRand = ((Math.floor(Math.random() * 9) * 10) + 30);
     let cyRand = ((Math.floor(Math.random() * 9) * 10) + 30);
     let rRand = (Math.floor(Math.random() * 20) + 5)
-    let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":"blob-1", "fill":"#ed2290", "cx":cxRand, "cy":cyRand, "r":rRand})
+    let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":blobClass, "fill":"#ed2290", "cx":cxRand, "cy":cyRand, "r":rRand})
     gEl.appendChild(childOfG);
   }
   svgElement.appendChild(defsEl)
@@ -234,11 +234,11 @@ map.on('load', function () {
     }
   });
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-  setUpLavadot(lavaDivSVG);
+  setUpLavadot(lavaDivSVG, "blob-2");
   document.getElementById('lavaDiv').appendChild(lavaDivSVG);
   geojsonfeatureCollection.features.forEach(function (marker) {
     var svgEl = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-    setUpLavadot(svgEl)
+    setUpLavadot(svgEl, "blob-1")
     new mapboxgl.Marker({element: svgEl})
       .setLngLat(marker.geometry.coordinates)
       .addTo(map);

@@ -250,7 +250,7 @@ map.on('load', function () {
 });
 
 function startLavadotAnimation(className, size) {
-      _boubles = document.querySelectorAll('.' + className)
+      var boubles = document.querySelectorAll('.' + className)
   
 	function _NextBounce (bouble) {
 		var r = bouble.getAttribute('r')
@@ -259,12 +259,9 @@ function startLavadotAnimation(className, size) {
 		var minY = radiusV
 		var maxX = size - radiusV
         	var maxY = size - radiusV
-		//console.log("size: " + size + ", _maxX: " + _maxX + ", minX: " + minX + ", maxX: " + maxX + ", minY: " + minY + ", maxY: " + maxY)
 		var randX = random(minX, maxX)
         	var randY = random(minY, maxY)
-		TweenMax.to(bouble, 
-			    //random(5, 20)
-			    2, { 
+		TweenMax.to(bouble, random(5, 20), { 
 			attr: {
 				cx:randX,
 				cy:randY,
@@ -284,10 +281,10 @@ function startLavadotAnimation(className, size) {
 		}
 		return Math.floor(Math.random() * (max - min) + Number(min));
 	}
-	console.log(_boubles)
-    console.log(_boubles.length)
-	for (var i = 0; i < _boubles.length; i++) {
-		_NextBounce(_boubles[i]);
+	console.log(boubles)
+    console.log(boubles.length)
+	for (var i = 0; i < boubles.length; i++) {
+		_NextBounce(boubles[i]);
 	}
 };
 

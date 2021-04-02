@@ -7,7 +7,7 @@ function setAttributes(el, attrs) {
   }
   return el
 }
-console.log("98")
+console.log("00")
 var pitchBody = document.querySelector('.body-2');
 var cursorDiv = setAttributes(document.createElement("div"), {"class":"cursor"});
 pitchBody.appendChild(cursorDiv)
@@ -31,7 +31,7 @@ document.addEventListener('mouseup', function(){
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/adammarez/ckgv43wr22dra19memucup1y8',
-  center: [-122.406098, 37.802457],
+  center: [-122.406000, 37.802457],
   zoom: 18.1,
   pitch: 68,
   bearing: 23.13,

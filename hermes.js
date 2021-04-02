@@ -261,6 +261,7 @@ function startLavadotAnimation(className, size) {
         	var maxY = size - radiusV
 		var randX = random(minX, maxX)
         	var randY = random(minY, maxY)
+		console.log("size: " + size + ", minX: " + minX + ", maxX" + maxX + ", minY: " + minY + ", maxY" + maxY)
 		TweenMax.to(bouble, random(5, 20), { 
 			attr: {
 				cx:randX,

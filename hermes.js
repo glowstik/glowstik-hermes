@@ -31,7 +31,7 @@ document.addEventListener('mouseup', function(){
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/adammarez/ckgv43wr22dra19memucup1y8',
-  center: [-122.406107, 37.802457],
+  center: [-122.406106, 37.802457],
   zoom: 18.1,
   pitch: 68,
   bearing: 23.13,
@@ -261,7 +261,6 @@ function startLavadotAnimation(className, size) {
         	var maxY = size - radiusV - 1
 		var randX = random(minX, maxX)
         	var randY = random(minY, maxY)
-		console.log("size: " + size + ", minX: " + minX + ", maxX" + maxX + ", minY: " + minY + ", maxY" + maxY)
 		TweenMax.to(bouble, random(5, 20), { 
 			attr: {
 				cx:randX,

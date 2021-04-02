@@ -255,10 +255,10 @@ function startLavadotAnimation(className, size) {
 	function _NextBounce (bouble) {
 		var r = bouble.getAttribute('r')
 		var radiusV = random(8, 32)
-		var minX = radiusV
-		var minY = radiusV
-		var maxX = size - radiusV
-        	var maxY = size - radiusV
+		var minX = radiusV + 1
+		var minY = radiusV + 1
+		var maxX = size - radiusV - 1
+        	var maxY = size - radiusV - 1
 		var randX = random(minX, maxX)
         	var randY = random(minY, maxY)
 		console.log("size: " + size + ", minX: " + minX + ", maxX" + maxX + ", minY: " + minY + ", maxY" + maxY)

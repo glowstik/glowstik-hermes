@@ -7,7 +7,7 @@ function setAttributes(el, attrs) {
   }
   return el
 }
-
+console.log("101")
 var pitchBody = document.querySelector('.body-2');
 var cursorDiv = setAttributes(document.createElement("div"), {"class":"cursor"});
 pitchBody.appendChild(cursorDiv)
@@ -80,7 +80,7 @@ var pulsingDot = {
 var chapters = {
   'start': {
     duration: 2000,
-    center: [-122.406104, 37.802457],
+    center: [-122.406101, 37.802457],
     zoom: 18.1,
     pitch: 68,
     bearing: 23.13,

@@ -256,12 +256,13 @@ function startLavadotAnimation(className, size) {
   
 	function _NextBounce (bouble) {
 		var r = bouble.getAttribute('r'),
-				radiusV = random(8, 32),
-				minX = radiusV,
-				minY = radiusV,
-				maxX = _maxX - radiusV, 
-        maxY = _maxY - radiusV,
-				randX = random(minX, maxX), 
+		var radiusV = random(8, 32),
+		var minX = radiusV,
+		var minY = radiusV,
+		var maxX = _maxX - radiusV, 
+        	var maxY = _maxY - radiusV,
+		console.log("size: " + size + ", minX: " + minX + ", maxX: " + maxX + ", minY: " + minY + ", maxY: " + maxY)
+		var randX = random(minX, maxX), 
         randY = random(minY, maxY);
 		TweenMax.to(bouble, 
 			    //random(5, 20)
@@ -273,7 +274,6 @@ function startLavadotAnimation(className, size) {
 			},
 			ease: "sine.inOut",
 			onComplete: function () {
-				debugger;
 				_NextBounce(bouble);
 			} 
 		});

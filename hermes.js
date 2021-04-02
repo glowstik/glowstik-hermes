@@ -80,7 +80,7 @@ var pulsingDot = {
 var chapters = {
   'start': {
     duration: 2000,
-    center: [-122.406107, 37.802457],
+    center: [-122.406104, 37.802457],
     zoom: 18.1,
     pitch: 68,
     bearing: 23.13,
@@ -281,8 +281,6 @@ function startLavadotAnimation(className, size) {
 		}
 		return Math.floor(Math.random() * (max - min) + Number(min));
 	}
-	console.log(boubles)
-    console.log(boubles.length)
 	for (var i = 0; i < boubles.length; i++) {
 		_NextBounce(boubles[i]);
 	}

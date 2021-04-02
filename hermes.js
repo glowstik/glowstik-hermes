@@ -273,6 +273,7 @@ function startLavadotAnimation(className, size) {
 			},
 			ease: "sine.inOut",
 			onComplete: function () {
+				debugger;
 				_NextBounce(bouble);
 			} 
 		});

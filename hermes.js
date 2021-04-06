@@ -389,8 +389,10 @@ window.onscroll = function() {
 	
   if (activeChapterName == 'start' && document.getElementById('marketVal').getBoundingClientRect().top < (window.innerHeight * .3)) {
     	triggerAnimation();
+	console.log("TRIGGERED")
   }
   else if (activeChapterName == 'end' && document.getElementById('marketVal').getBoundingClientRect().top >= (window.innerHeight * .3)){
   	clearAnimation();
+	console.log("CLEARED")
   }
 };

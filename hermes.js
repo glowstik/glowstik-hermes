@@ -7,7 +7,7 @@ function setAttributes(el, attrs) {
   }
   return el
 }
-console.log("95")
+console.log("Latest")
 var pitchBody = document.querySelector('.body-2');
 var cursorDiv = setAttributes(document.createElement("div"), {"class":"cursor"});
 pitchBody.appendChild(cursorDiv)
@@ -347,6 +347,7 @@ function clearAnimation(){
   barChart.setDatasetVisibility(0, false)
   barChart.update()
 }
+var barChartInvisible = true;
 
 window.onscroll = function() {
   if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .2)) {
@@ -387,12 +388,14 @@ window.onscroll = function() {
   	  }
   }
 	
-  if (activeChapterName == 'start' && document.getElementById('marketVal').getBoundingClientRect().top < (window.innerHeight * .3)) {
+  if (barChartInvisible && document.getElementById('marketVal').getBoundingClientRect().top < (window.innerHeight * .3)) {
     	triggerAnimation();
+	barChartInvisible = !barChartInvisible
 	console.log("TRIGGERED")
   }
-  else if (activeChapterName == 'end' && document.getElementById('marketVal').getBoundingClientRect().top >= (window.innerHeight * .3)){
+  else if (!barChartInvisible && document.getElementById('marketVal').getBoundingClientRect().top >= (window.innerHeight * .3)){
   	clearAnimation();
+	barChartInvisible = !barChartInvisible
 	console.log("CLEARED")
   }
 };

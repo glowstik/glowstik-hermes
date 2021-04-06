@@ -293,6 +293,61 @@ function setActiveChapter(chapterName) {
     activeChapterName = chapterName;
 }
 
+var canv = document.createElement("canvas")
+canv.setAttribute("id", "barChart")
+canv.setAttribute("width", "100%")
+canv.setAttribute("height", "480px")
+document.getElementById("barChartContainer").appendChild(canv)
+var barChart = new Chart(document.getElementById("barChart").getContext("2d"), {
+    type: 'bar',
+    data: {
+      labels: ['2020','2019','2018','2017','2016','2015','2014','2013','2012','2011','2010','2009','2008','2007','2006','2005','2004','2003','2002','2001','2000','1999','1998','1997','1993','1992','1990','1988','1983','1978','1974' 
+      ],
+      datasets: [
+        {
+          label: "Privacy laws created",
+          backgroundColor: '#ed2290',
+          data: [ 9, 19, 16, 8, 35, 6, 7, 8, 9, 12, 7, 4, 9, 2, 4, 7, 3, 7, 3, 3, 4, 2, 3, 1, 1, 3, 1, 2, 1, 1, 1 ],
+          borderRadius: 50,
+        }
+      ]
+    },
+    options: {
+      animation: {
+        duration: 760,
+        easing: 'easeOutBounce',
+        delay: 500
+      },
+      plugins: {
+        legend: { display: false },
+      },
+      scales: {
+        y: {
+          suggestedMin: 0,
+          suggestedMax: 35
+        }
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        text: 'Data Protection and Privacy Legislation Worldwide'
+      },
+    }
+});
+// document.getElementById('triggerButton').onclick = barChart.render();
+// document.getElementById("triggerButton").setAttribute("width", "50px")
+clearAnimation()
+function triggerAnimation(){
+  barChart.setDatasetVisibility(0, true)
+  barChart.reset()
+  barChart.update()
+}
+function clearAnimation(){
+  barChart.setDatasetVisibility(0, false)
+  barChart.update()
+}
+
 window.onscroll = function() {
   if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .2)) {
     	//
@@ -330,5 +385,12 @@ window.onscroll = function() {
     	  	TweenMax.fromTo(".gLava", 2, {autoAlpha:0.7}, {autoAlpha:0});
 		lavadotsInvisible = true
   	  }
+  }
+	
+  if (activeChapterName == 'start' && document.getElementById('marketVal').getBoundingClientRect().top < (window.innerHeight * .3)) {
+    	triggerAnimation();
+  }
+  else if (activeChapterName == 'end' && document.getElementById('marketVal').getBoundingClientRect().top >= (window.innerHeight * .3)){
+  	clearAnimation();
   }
 };

@@ -182,7 +182,7 @@ var geojsonfeatureCollection = {
     }]
 };
 
-function setUpLavadot(svgElement, blobClass, size, color) {
+function setUpLavadot(svgElement, blobClass, size, color, opacity) {
   setAttributes(svgElement, {"version":"1.1", "class": "svg-bubbles", "xmlns":"http://www.w3.org/2000/svg", "xmlns:xlink":"http://www.w3.org/1999/xlink", "x":"0px", "y":"0px", "width":size + "px", "height":size + "px", "viewBox":"0 0 " + size + " " + size})
   let defsEl = document.createElementNS("http://www.w3.org/2000/svg", "defs")
   let filterEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "filter"), {"id": "goo"})
@@ -191,7 +191,7 @@ function setUpLavadot(svgElement, blobClass, size, color) {
   filterEl.appendChild(feGaussianBlurEl)
   filterEl.appendChild(feColorMatrixEl)
   defsEl.appendChild(filterEl)
-  let gEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "g"), {"class":"gLava", "style":"opacity: 0.7","filter":"url(#goo)"})
+  let gEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "g"), {"class":"gLava", "style":("opacity: " + opacity),"filter":"url(#goo)"})
   for(var i = 0; i < 10; i++){
     let cxRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
     let cyRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
@@ -235,11 +235,11 @@ map.on('load', function () {
     }
   });
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-  setUpLavadot(lavaDivSVG, "blob-2", "98", "#ffffff");
+  setUpLavadot(lavaDivSVG, "blob-2", "98", "#ffffff", 1.0);
   document.getElementById('lavaDiv').appendChild(lavaDivSVG);
   geojsonfeatureCollection.features.forEach(function (marker) {
     var svgEl = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-    setUpLavadot(svgEl, "blob-1", "150", "#ed2290")
+    setUpLavadot(svgEl, "blob-1", "150", "#ed2290", 0.7)
     new mapboxgl.Marker({element: svgEl})
       .setLngLat(marker.geometry.coordinates)
       .addTo(map);

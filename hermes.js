@@ -195,7 +195,7 @@ function setUpLavadot(svgElement, blobClass, size) {
     let cxRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
     let cyRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
     let rRand = (Math.floor(Math.random() * 24) + 8)
-    let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":blobClass, "fill":"#FFFFFF", "cx":cxRand, "cy":cyRand, "r":rRand})
+    let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":blobClass, "fill":"#ed2290", "cx":cxRand, "cy":cyRand, "r":rRand})
     gEl.appendChild(childOfG);
   }
   svgElement.appendChild(defsEl)
@@ -305,7 +305,7 @@ var barChart = new Chart(document.getElementById("barChart").getContext("2d"), {
       datasets: [
         {
           label: "Privacy laws created",
-          backgroundColor: '#FFFFFF',
+          backgroundColor: '#ed2290',
           data: [1, 1, 1, 2, 1, 3, 1, 1, 3, 2, 4, 3, 3, 7, 3, 7, 4, 2, 9, 4, 7, 12, 9, 8, 7, 6, 35, 8, 16, 19, 9],
           borderRadius: 50,
         }

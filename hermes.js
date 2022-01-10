@@ -7,6 +7,7 @@ function setAttributes(el, attrs) {
   }
   return el
 }
+
 console.log("Latest")
 var pitchBody = document.querySelector('.body-2');
 var cursorDiv = setAttributes(document.createElement("div"), {"class":"cursor"});
@@ -181,7 +182,7 @@ var geojsonfeatureCollection = {
     }]
 };
 
-function setUpLavadot(svgElement, blobClass, size) {
+function setUpLavadot(svgElement, blobClass, size, color) {
   setAttributes(svgElement, {"version":"1.1", "class": "svg-bubbles", "xmlns":"http://www.w3.org/2000/svg", "xmlns:xlink":"http://www.w3.org/1999/xlink", "x":"0px", "y":"0px", "width":size + "px", "height":size + "px", "viewBox":"0 0 " + size + " " + size})
   let defsEl = document.createElementNS("http://www.w3.org/2000/svg", "defs")
   let filterEl = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "filter"), {"id": "goo"})
@@ -195,7 +196,7 @@ function setUpLavadot(svgElement, blobClass, size) {
     let cxRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
     let cyRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
     let rRand = (Math.floor(Math.random() * 24) + 8)
-    let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":blobClass, "fill":"#ed2290", "cx":cxRand, "cy":cyRand, "r":rRand})
+    let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":blobClass, "fill":color, "cx":cxRand, "cy":cyRand, "r":rRand})
     gEl.appendChild(childOfG);
   }
   svgElement.appendChild(defsEl)
@@ -234,11 +235,11 @@ map.on('load', function () {
     }
   });
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-  setUpLavadot(lavaDivSVG, "blob-2", "98");
+  setUpLavadot(lavaDivSVG, "blob-2", "98", "#ffffff");
   document.getElementById('lavaDiv').appendChild(lavaDivSVG);
   geojsonfeatureCollection.features.forEach(function (marker) {
     var svgEl = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-    setUpLavadot(svgEl, "blob-1", "150")
+    setUpLavadot(svgEl, "blob-1", "150", "#ed2290")
     new mapboxgl.Marker({element: svgEl})
       .setLngLat(marker.geometry.coordinates)
       .addTo(map);
@@ -334,8 +335,7 @@ var barChart = new Chart(document.getElementById("barChart").getContext("2d"), {
       },
     }
 });
-// document.getElementById('triggerButton').onclick = barChart.render();
-// document.getElementById("triggerButton").setAttribute("width", "50px")
+
 clearAnimation()
 function triggerAnimation(){
   barChart.setDatasetVisibility(0, true)

@@ -235,7 +235,7 @@ map.on('load', function () {
     }
   });
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-  setUpLavadot(lavaDivSVG, "blob-2", "98", "#ffffff", 1.0);
+  setUpLavadot(lavaDivSVG, "blob-2", "98", "#ffffff", 0.1);
   document.getElementById('lavaDiv').appendChild(lavaDivSVG);
   geojsonfeatureCollection.features.forEach(function (marker) {
     var svgEl = document.createElementNS("http://www.w3.org/2000/svg", 'svg');

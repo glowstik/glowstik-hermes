@@ -1,5 +1,4 @@
-//dev test
-console.log('dev branch')
+// Latest 3/31/2022 12:20 PM
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbW1hcmV6IiwiYSI6ImNrOW9mbGU4NjAwMzgzc3JrNjQwbGhibDkifQ.7vEaAFpTHeARk8-Mzvm7Rw';
 
 
@@ -395,11 +394,9 @@ window.onscroll = function() {
   if (barChartInvisible && document.getElementById('marketVal').getBoundingClientRect().top < (window.innerHeight * .3)) {
     	triggerAnimation();
 	barChartInvisible = !barChartInvisible
-	console.log("TRIGGERED")
   }
   else if (!barChartInvisible && document.getElementById('marketVal').getBoundingClientRect().top >= (window.innerHeight * .3)){
   	clearAnimation();
 	barChartInvisible = !barChartInvisible
-	console.log("CLEARED")
   }
 };

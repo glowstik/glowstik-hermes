@@ -10,7 +10,6 @@ function setAttributes(el, attrs) {
   return el
 }
 
-console.log("Latest")
 var pitchBody = document.querySelector('.body-2');
 var cursorDiv = setAttributes(document.createElement("div"), {"class":"cursor"});
 pitchBody.appendChild(cursorDiv)

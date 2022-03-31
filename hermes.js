@@ -374,14 +374,18 @@ window.onscroll = function() {
 	
 	
   if (document.getElementById('solutionSection').getBoundingClientRect().top < (window.innerHeight * .3)){
-    map.setLayoutProperty('points', 'visibility', 'none');
+	if(map.getLayer('points')){
+    	map.setLayoutProperty('points', 'visibility', 'none');
+	}
 	  if(lavadotsInvisible){
 			TweenMax.fromTo(".gLava", 2, {autoAlpha:0}, {autoAlpha:0.7});
 			lavadotsInvisible = false
 		}
   }
   else{
-    map.setLayoutProperty('points', 'visibility', 'visible');
+	if(map.getLayer('points')){
+    	map.setLayoutProperty('points', 'visibility', 'visible');
+	}
 	  if(!lavadotsInvisible){
     	  	TweenMax.fromTo(".gLava", 2, {autoAlpha:0.7}, {autoAlpha:0});
 		lavadotsInvisible = true

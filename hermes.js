@@ -1,3 +1,4 @@
+// Latest 3/31/2022 12:20 PM
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbW1hcmV6IiwiYSI6ImNrOW9mbGU4NjAwMzgzc3JrNjQwbGhibDkifQ.7vEaAFpTHeARk8-Mzvm7Rw';
 
 
@@ -8,7 +9,6 @@ function setAttributes(el, attrs) {
   return el
 }
 
-console.log("Latest")
 var pitchBody = document.querySelector('.body-2');
 var cursorDiv = setAttributes(document.createElement("div"), {"class":"cursor"});
 pitchBody.appendChild(cursorDiv)
@@ -373,14 +373,18 @@ window.onscroll = function() {
 	
 	
   if (document.getElementById('solutionSection').getBoundingClientRect().top < (window.innerHeight * .3)){
-    map.setLayoutProperty('points', 'visibility', 'none');
+	if(map.getLayer('points')){
+    	map.setLayoutProperty('points', 'visibility', 'none');
+	}
 	  if(lavadotsInvisible){
 			TweenMax.fromTo(".gLava", 2, {autoAlpha:0}, {autoAlpha:0.7});
 			lavadotsInvisible = false
 		}
   }
   else{
-    map.setLayoutProperty('points', 'visibility', 'visible');
+	if(map.getLayer('points')){
+    	map.setLayoutProperty('points', 'visibility', 'visible');
+	}
 	  if(!lavadotsInvisible){
     	  	TweenMax.fromTo(".gLava", 2, {autoAlpha:0.7}, {autoAlpha:0});
 		lavadotsInvisible = true
@@ -390,11 +394,9 @@ window.onscroll = function() {
   if (barChartInvisible && document.getElementById('marketVal').getBoundingClientRect().top < (window.innerHeight * .3)) {
     	triggerAnimation();
 	barChartInvisible = !barChartInvisible
-	console.log("TRIGGERED")
   }
   else if (!barChartInvisible && document.getElementById('marketVal').getBoundingClientRect().top >= (window.innerHeight * .3)){
   	clearAnimation();
 	barChartInvisible = !barChartInvisible
-	console.log("CLEARED")
   }
 };

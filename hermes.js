@@ -349,7 +349,7 @@ function clearAnimation(){
 var barChartInvisible = true;
 
 window.onscroll = function() {
-  if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .5)) {
+  if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)) {
     	console.log("mapInvisible: ", mapInvisible);
 	if(mapInvisible){
 		TweenMax.fromTo("#map", 1, {autoAlpha:0}, {autoAlpha:1});

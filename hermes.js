@@ -364,10 +364,10 @@ window.onscroll = function() {
   }
 	
 	
-  if (activeChapterName == 'start' && document.getElementById('betweenProbAndSol').getBoundingClientRect().top < (window.innerHeight * .5)) {
+  if (activeChapterName == 'start' && document.getElementById('problemSlide').getBoundingClientRect().top < (window.innerHeight * .5)) {
     	setActiveChapter('end');
   }
-  else if (activeChapterName == 'end' && document.getElementById('betweenProbAndSol').getBoundingClientRect().top >= (window.innerHeight * .5)){
+  else if (activeChapterName == 'end' && document.getElementById('problemSlide').getBoundingClientRect().top >= (window.innerHeight * .5)){
   	setActiveChapter('start');
   }
 	

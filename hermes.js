@@ -349,8 +349,8 @@ function clearAnimation(){
 var barChartInvisible = true;
 
 window.onscroll = function() {
-  if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .2)) {
-    	//
+  if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .5)) {
+    	console.log("mapInvisible: ", mapInvisible);
 	if(mapInvisible){
 		TweenMax.fromTo("#map", 1, {autoAlpha:0}, {autoAlpha:1});
 		mapInvisible = false;
@@ -365,9 +365,11 @@ window.onscroll = function() {
 	
 	
   if (activeChapterName == 'start' && document.getElementById('problemSlide').getBoundingClientRect().top < (window.innerHeight * .1)) {
+	console.log("setActiveChapter('end')");
     	setActiveChapter('end');
   }
   else if (activeChapterName == 'end' && document.getElementById('problemSlide').getBoundingClientRect().top >= (window.innerHeight * .1)){
+	console.log("setActiveChapter('start')");
   	setActiveChapter('start');
   }
 	

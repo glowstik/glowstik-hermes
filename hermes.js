@@ -332,6 +332,7 @@ var barChart = new Chart(document.getElementById("barChart").getContext("2d"), {
         display: true,
         text: 'Data Protection and Privacy Legislation Worldwide'
       },
+	clip: false
     }
 });
 

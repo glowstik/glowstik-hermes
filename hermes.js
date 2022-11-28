@@ -349,6 +349,7 @@ function clearAnimation(){
 var barChartInvisible = true;
 
 window.onscroll = function() {
+  console.log((document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)))
   if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)) {
     	console.log("mapInvisible: ", mapInvisible);
 	if(mapInvisible){

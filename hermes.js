@@ -1,6 +1,5 @@
-// Latest 3/31/2022 12:20 PM
+// Copyright 2022 Glowstik Inc. All rights reserved.
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbW1hcmV6IiwiYSI6ImNrOW9mbGU4NjAwMzgzc3JrNjQwbGhibDkifQ.7vEaAFpTHeARk8-Mzvm7Rw';
-
 
 function setAttributes(el, attrs) {
   for(var key in attrs) {
@@ -348,7 +347,7 @@ function clearAnimation(){
 }
 var barChartInvisible = true;
 
-window.onscroll = function() {
+document.getElementById('deckWrapper').addEventListener('scroll', () => {
   console.log((document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)))
   if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)) {
     	console.log("mapInvisible: ", mapInvisible);
@@ -402,4 +401,4 @@ window.onscroll = function() {
   	clearAnimation();
 	barChartInvisible = !barChartInvisible
   }
-};
+})

@@ -296,7 +296,7 @@ function setActiveChapter(chapterName) {
 var canv = document.createElement("canvas")
 canv.setAttribute("id", "barChart")
 canv.setAttribute("width", "100%")
-canv.setAttribute("height", "480px")
+canv.setAttribute("height", "100%")
 document.getElementById("barChartContainer").appendChild(canv)
 var barChart = new Chart(document.getElementById("barChart").getContext("2d"), {
     type: 'bar',

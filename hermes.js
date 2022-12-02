@@ -204,8 +204,8 @@ function setUpLavadot(svgElement, blobClass, size, color, opacity) {
 var lavadotsInvisible;
 var mapInvisible;
 map.on('load', function () {
-  TweenMax.set("#map",{autoAlpha:0});
-  mapInvisible = true;
+  TweenMax.set("#map",{autoAlpha:1});
+//   mapInvisible = false;
   map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
   map.addSource('points', {
       'type': 'geojson',
@@ -349,20 +349,20 @@ function clearAnimation(){
 var barChartInvisible = true;
 
 document.getElementById('deckWrapper').addEventListener('scroll', () => {
-  console.log((document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)))
-  if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)) {
-    	console.log("mapInvisible: ", mapInvisible);
-	if(mapInvisible){
-		TweenMax.fromTo("#map", 1, {autoAlpha:0}, {autoAlpha:1});
-		mapInvisible = false;
-	}
-  }
-  else{
-  	if(!mapInvisible){
-		TweenMax.fromTo("#map", 1, {autoAlpha:1}, {autoAlpha:0});
-		mapInvisible = true;
-	}
-  }
+//   console.log((document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)))
+//   if (document.getElementById('map').getBoundingClientRect().top < (window.innerHeight * .3)) {
+//     	console.log("mapInvisible: ", mapInvisible);
+// 	if(mapInvisible){
+// 		TweenMax.fromTo("#map", 1, {autoAlpha:0}, {autoAlpha:1});
+// 		mapInvisible = false;
+// 	}
+//   }
+//   else{
+//   	if(!mapInvisible){
+// 		TweenMax.fromTo("#map", 1, {autoAlpha:1}, {autoAlpha:0});
+// 		mapInvisible = true;
+// 	}
+//   }
 	
 	
   if (activeChapterName == 'start' && document.getElementById('problemSlide').getBoundingClientRect().top < (window.innerHeight * .1)) {

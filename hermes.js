@@ -28,9 +28,9 @@ document.addEventListener('mouseup', function(){
   cursor.classList.remove('click')
 });
 
-var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-setUpLavadot(lavaDivSVG, "blob-3", "180", "#ed2290", 1);
-document.getElementById('lavaDiv2').appendChild(lavaDivSVG);
+var lavaDivSVG2 = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+setUpLavadot(lavaDivSVG2, "blob-3", "180", "#ed2290", 1);
+document.getElementById('lavaDiv2').appendChild(lavaDivSVG2);
 startLavadotAnimation("blob-3", 180)
 
 var map = new mapboxgl.Map({

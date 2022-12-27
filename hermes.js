@@ -55,7 +55,7 @@ var pulsingDot = {
         var canvas = document.createElement('canvas');
         canvas.width = this.width;
         canvas.height = this.height;
-        this.context = canvas.getContext('2d');
+        this.context = canvas.getContext('2d', { willReadFrequently: true });
     },
     render: function () {
         var duration = 2000;
@@ -304,7 +304,7 @@ canv.setAttribute("id", "barChart")
 canv.setAttribute("width", "100%")
 canv.setAttribute("height", "100%")
 document.getElementById("barChartContainer").appendChild(canv)
-var barChart = new Chart(document.getElementById("barChart").getContext("2d"), {
+var barChart = new Chart(document.getElementById("barChart").getContext("2d", { willReadFrequently: true }), {
     type: 'bar',
     data: {
       labels: ['1974','1978','1983','1988','1990','1992','1993','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020'],

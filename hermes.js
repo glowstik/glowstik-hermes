@@ -203,6 +203,12 @@ function setUpLavadot(svgElement, blobClass, size, color, opacity) {
 }
 var lavadotsInvisible;
 var mapInvisible;
+
+var lavaDivSVG2 = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+setUpLavadot(lavaDivSVG2, "blob-3", "180", "#ed2290", 1);
+document.getElementById('lavaDiv2').appendChild(lavaDivSVG2);
+startLavadotAnimation("blob-3", 180)
+
 map.on('load', function () {
   TweenMax.set("#map",{autoAlpha:1});
 //   mapInvisible = false;
@@ -233,14 +239,6 @@ map.on('load', function () {
       'fill-extrusion-opacity': .6
     }
   });
-
-
-  var lavaDivSVG2 = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-  setUpLavadot(lavaDivSVG2, "blob-3", "180", "#ed2290", 1);
-  document.getElementById('lavaDiv2').appendChild(lavaDivSVG2);
-  startLavadotAnimation("blob-3", 180)
-  TweenMax.set(".gLava",{autoAlpha:0});
-  lavadotsInvisible = false;
 
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
   setUpLavadot(lavaDivSVG, "blob-2", "98", "#ed2290", 0.7);

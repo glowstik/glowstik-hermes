@@ -28,6 +28,11 @@ document.addEventListener('mouseup', function(){
   cursor.classList.remove('click')
 });
 
+var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+setUpLavadot(lavaDivSVG, "blob-3", "180", "#ed2290", 1);
+document.getElementById('lavaDiv2').appendChild(lavaDivSVG);
+startLavadotAnimation("blob-3", 180)
+
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/adammarez/cl7z3geb8000z14ry8o8okctt',
@@ -236,7 +241,6 @@ map.on('load', function () {
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
   setUpLavadot(lavaDivSVG, "blob-2", "98", "#ed2290", 0.7);
   document.getElementById('lavaDiv').appendChild(lavaDivSVG);
-  document.getElementById('lavaDiv2').appendChild(lavaDivSVG);
   geojsonfeatureCollection.features.forEach(function (marker) {
     var svgEl = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
     setUpLavadot(svgEl, "blob-1", "150", "#ed2290", 0.7)

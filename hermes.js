@@ -28,12 +28,6 @@ document.addEventListener('mouseup', function(){
   cursor.classList.remove('click')
 });
 
-var lavaDivSVG2 = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
-setUpLavadot(lavaDivSVG2, "blob-3", "180", "#ed2290", 1);
-document.getElementById('lavaDiv2').appendChild(lavaDivSVG2);
-startLavadotAnimation("blob-3", 180)
-TweenMax.set(".gLava",{autoAlpha:1});
-
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/adammarez/cl7z3geb8000z14ry8o8okctt',
@@ -239,6 +233,15 @@ map.on('load', function () {
       'fill-extrusion-opacity': .6
     }
   });
+
+
+  var lavaDivSVG2 = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+  setUpLavadot(lavaDivSVG2, "blob-3", "180", "#ed2290", 1);
+  document.getElementById('lavaDiv2').appendChild(lavaDivSVG2);
+  startLavadotAnimation("blob-3", 180)
+  TweenMax.set(".gLava",{autoAlpha:0});
+  lavadotsInvisible = false;
+
   var lavaDivSVG = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
   setUpLavadot(lavaDivSVG, "blob-2", "98", "#ed2290", 0.7);
   document.getElementById('lavaDiv').appendChild(lavaDivSVG);

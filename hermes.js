@@ -188,7 +188,13 @@ var geojsonfeatureCollection = {
 		}]
 };
 
-function setUpLavadot(parentElement, blobClass, size, color, opacity, gClassNameOverride) {
+function setUpLavadot(parentElement, blobClass, size, color, opacity, gClassNameOverride, baubleMinOverride, baubleMaxOverride) {
+	let baubleMin = 8;
+	let baubleMax = 30;
+	if(baubleMinOverride && baubleMaxOverride){
+		baubleMin = baubleMinOverride;
+		baubleMax = baubleMaxOverride;
+	}
 	let gClassName = gClassNameOverride
 	if(!gClassName){
 		gClassName = 'gLava'
@@ -206,7 +212,7 @@ function setUpLavadot(parentElement, blobClass, size, color, opacity, gClassName
 	for(var i = 0; i < 10; i++){
 		let cxRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
 		let cyRand = Math.floor(Math.floor(Math.random() * 9) * ((size-64)/8)) + 32
-		let rRand = (Math.floor(Math.random() * 24) + 8)
+		let rRand = (Math.floor(Math.random() * (baubleMax - baubleMin)) + baubleMin)
 		let childOfG = setAttributes(document.createElementNS("http://www.w3.org/2000/svg", "circle"), {"class":blobClass, "fill":color, "cx":cxRand, "cy":cyRand, "r":rRand})
 		gEl.appendChild(childOfG);
 	}
@@ -294,7 +300,7 @@ function setupLavadotAnimation(boubles, size) {
 var lavadotsInvisible;
 var mapInvisible;
 
-slideOneLavadotController = setUpLavadot(document.getElementById('lavaDiv2'), "blob-3", "270", "#ed2290", 1, 'gLava2').controller;
+slideOneLavadotController = setUpLavadot(document.getElementById('lavaDiv2'), "blob-3", "270", "#ed2290", 1, 'gLava2', 12, 45).controller;
 slideOneLavadotController.play();
 
 map.on('load', function () {

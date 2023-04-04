@@ -294,7 +294,7 @@ function setupLavadotAnimation(boubles, size) {
 var lavadotsInvisible;
 var mapInvisible;
 
-slideOneLavadotController = setUpLavadot(document.getElementById('lavaDiv2'), "blob-3", "180", "#ed2290", 1, 'gLava2').controller;
+slideOneLavadotController = setUpLavadot(document.getElementById('lavaDiv2'), "blob-3", "270", "#ed2290", 1, 'gLava2').controller;
 slideOneLavadotController.play();
 
 map.on('load', function () {
